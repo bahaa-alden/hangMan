@@ -138,6 +138,7 @@ re.onclick = () => {
   legs.classList.remove("lose");
   hands.classList.remove("lose");
   body.classList.remove("lose");
+
 };
 function loser() {
   setTimeout(() => {
