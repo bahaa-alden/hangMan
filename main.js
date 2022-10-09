@@ -37,9 +37,12 @@ let thedraw = document.querySelector(".the-draw");
 let cnt = 0,
   cnt1 = 0;
 let found = false;
-let correct = new Audio("/Correct Answer Sound Effect _ NO COPYRIGHT .mp3");
-let mistake = new Audio("/mistake.mp3");
-let lose = new Audio("/lose.mp3");
+let correct = new Audio("Correct Answer Sound Effect _ NO COPYRIGHT .mp3");
+let mistake = new Audio("mistake.mp3");
+let lose = new Audio("lose.mp3");
+let legs = document.querySelector(".legs");
+let hands = document.querySelector(".hands");
+let body = document.querySelector(".body");
 get();
 document.addEventListener("click", function (ele) {
   let length = document.querySelector(".letters-guess").children.length;
@@ -132,11 +135,18 @@ re.onclick = () => {
   get();
   winner.classList.add("hide");
   winner.classList.remove("show");
+  legs.classList.remove("lose");
+  hands.classList.remove("lose");
+  body.classList.remove("lose");
 };
 function loser() {
   setTimeout(() => {
     winner.classList.remove("hide");
     winner.classList.add("show");
+    legs.classList.add("lose");
+    hands.classList.add("lose");
+    body.classList.add("lose");
+
     lose.play();
     (cnt = 0), (cnt1 = 0);
     found = false;

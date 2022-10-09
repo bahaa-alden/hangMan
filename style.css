@@ -42,13 +42,13 @@ hr {
   height: 324px;
 }
 .hangman-draw .the-draw {
-  opacity: 0;
   width: 60px;
   height: 280px;
   border-bottom: var(--border) solid #fff;
   position: relative;
   left: -50px;
   margin: auto;
+  opacity: 0;
 }
 .hangman-draw .the-draw .the-stand {
   opacity: 0;
@@ -143,7 +143,6 @@ hr {
   background-color: #fff;
 }
 .hangman-draw .the-draw .the-man .hands {
-  opacity: 0;
   position: absolute;
   width: 70px;
   height: 70px;
@@ -152,6 +151,29 @@ hr {
   top: 90px;
   left: 95px;
   transform: rotate(-45deg);
+  opacity: 0;
+}
+@keyframes lose {
+  0% {
+    transform: rotate(-45deg) skew(0, 0);
+  }
+  50% {
+    transform: rotate(-45deg) skew(25deg, 25deg);
+  }
+  100% {
+    transform: rotate(-45deg) skew(0, 0);
+  }
+}
+@keyframes lose1 {
+  0% {
+    transform: rotate(45deg) skew(0, 0);
+  }
+  50% {
+    transform: rotate(45deg) skew(-25deg, -25deg);
+  }
+  100% {
+    transform: rotate(45deg) skew(0, 0);
+  }
 }
 .hangman-draw .the-draw .the-man .legs {
   opacity: 0;
@@ -383,4 +405,13 @@ hr {
   font-weight: bold;
   color: rgb(56, 168, 22);
   text-shadow: 0 5px 15px blue;
+}
+.the-draw .the-man .hands.lose {
+  animation: lose 2s infinite linear;
+}
+.the-draw .the-man .legs.lose {
+  animation: lose1 2s infinite linear;
+}
+.the-draw .the-man .body.lose {
+  height: 143px;
 }
